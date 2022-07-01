@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "avh+Ih117SXTfVSBkkthI+4G12ARjQNPjLWY7vNQk48NqOhE6p1R2ziTsE0Gd/Gc61A+p8cBeYWQ/X7djiqlBg==",
+  "success": true,
+  "projectFilePath": "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Valer\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Valer\\.nuget\\packages\\system.windows.interactivity.wpf\\2.0.20525\\system.windows.interactivity.wpf.2.0.20525.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"System.Windows.Interactivity.WPF 2.0.20525\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "System.Windows.Interactivity.WPF",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
+}
