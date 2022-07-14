@@ -3,62 +3,82 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuotesApp.Resources"
         mc:Ignorable="d"
-        Title="Котировки" Height="450" Width="550" ResizeMode="NoResize">
-    <Grid Margin="0,0,0,0">
-        <Button Content="Обновить" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80"
-                Command="{Binding Path=UpdateCommand}" CommandParameter="{Binding Path=Valutes}"/>
-        <Button Content="Загрузить" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Width="80"
-                Command="{Binding Path=LoadCommand}"/>
-        <Label Content="Коды валют" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
-        <ListBox ItemsSource="{Binding Path=Valutes}" SelectedItem="{Binding Path=SelectedValuta, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" Margin="10,77,334,82">
+        Title="Котировки" Height="480" Width="550" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="20" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="190"/>
+        </Style>
+        <Style x:Key="ListRight">
+            <Setter Property="Control.HorizontalAlignment" Value="Right" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.Width" Value="290" />
+            <Setter Property="Control.Height" Value="120" />
+        </Style>
+        <Style x:Key="TextBoxRight">
+            <Setter Property="Control.HorizontalAlignment" Value="Right" />
+            <Setter Property="Control.VerticalAlignment" Value="Top" />
+            <Setter Property="Control.Width" Value="150" />
+            <Setter Property="Control.Height" Value="25" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0,0" Height="450" Width="550" VerticalAlignment="Top">
+        <Button Content="Обновить" Command="{Binding Path=UpdateCommand}" Margin="10,10,0,0"/>
+        <Button Content="Загрузить" Command="{Binding Path=LoadCommand}" Margin="110,10,0,0" />
+        <Label Content="Коды валют" Margin="10,55,0,0"/>
+        <ListBox ItemsSource="{Binding Path=Valutes}" SelectedItem="{Binding Path=SelectedValuta, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" Margin="10,80,0,0" Width="210" HorizontalAlignment="Left" VerticalAlignment="Top" Height="270">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=NameWithCode}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox HorizontalAlignment="Left" Margin="10,357,0,0" 
-                 Text="{Binding Path=SearchText, Mode=TwoWay}" 
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Height="22"
-                 local:FocusAdvancement.AdvancesByEnterKey="True"/>
-        <Button Content="Поиск" HorizontalAlignment="Left" Margin="136,384,0,0" VerticalAlignment="Top" Width="80"
-                Command="{Binding Path=SearchCommand}" CommandParameter="{Binding Path=SearchText}"/>
-        <Label Content="Курсы валют ЦБ на сегодня" HorizontalAlignment="Left" Margin="237,28,0,0" VerticalAlignment="Top"/>
-        <ListBox ItemsSource="{Binding Path=Valutes}" SelectedItem="{Binding Path=SelectedValuta, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" Margin="237,59,10,259">
+        <TextBox HorizontalAlignment="Left" Margin="10,360,0,0" 
+                 Text="{Binding Path=SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="22"/>
+        <Button Content="Поиск" Command="{Binding Path=SearchCommand}" Margin="140,390,0,0"/>
+        <Label Content="Курсы валют ЦБ на сегодня" Margin="230,35,0,0"/>
+        <ListBox ItemsSource="{Binding Path=Valutes}" SelectedItem="{Binding Path=SelectedValuta, Mode=TwoWay}" SelectionChanged="ListBox_SelectionChanged" Margin="0,60,30,0" Style="{StaticResource ListRight}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=CourseString}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Конвертировать" HorizontalAlignment="Left" Margin="237,175,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" 
-                  ItemsSource="{Binding Path=Valutes}" 
+        <Label Content="Конвертировать" Margin="230,185,0,0"/>
+        <ComboBox ItemsSource="{Binding Path=Valutes}" 
                   DisplayMemberPath="CharCode"
                   SelectedItem="{Binding Path=ConvertSelectedFirst, Mode=TwoWay}" 
-                  Margin="237,217,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" 
-                  ItemsSource="{Binding Path=Valutes}" 
+                  Margin="0,215,200,0" Style="{StaticResource TextBoxRight}" Width="120" Height="20"/>
+        <ComboBox ItemsSource="{Binding Path=Valutes}" 
                   DisplayMemberPath="CharCode"
                   SelectedItem="{Binding Path=ConvertSelectedSecond, Mode=TwoWay}" 
-                  Margin="237,260,0,0" VerticalAlignment="Top" Width="120"/>
+                  Margin="0,255,200,0" Style="{StaticResource TextBoxRight}" Width="120" Height="20"/>
         <TextBox
-            Text="{Binding Path=ConvertFirstValue, Mode=TwoWay}"
-            HorizontalAlignment="Left" Margin="382,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Height="22"
-            local:FocusAdvancement.AdvancesByEnterKey="True">
-        </TextBox>
+            Text="{Binding Path=ConvertFirstValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Margin="0,215,30,0" Style="{StaticResource TextBoxRight}" TextWrapping="Wrap"/>
+        
         <TextBox 
-            Text="{Binding Path=ConvertSecondValue, Mode=TwoWay}"
-            HorizontalAlignment="Left" Margin="382,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Height="22" IsReadOnly="True"/>
-        <ListBox ItemsSource="{Binding Path=SearchedValutaText}" SelectedItem="{Binding Path=SelectedValuta, Mode=OneWay}" Margin="237,316,10,10">
+            Text="{Binding Path=ConvertSecondValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Margin="0,252,30,0" Style="{StaticResource TextBoxRight}" IsReadOnly="True" TextWrapping="Wrap"/>
+            
+        <ListBox ItemsSource="{Binding Path=SearchedValutaText}" SelectedItem="{Binding Path=SelectedValuta, Mode=OneWay}" Margin="0,300,30,0" Style="{StaticResource ListRight}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding }"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
     </Grid>
 </Window>

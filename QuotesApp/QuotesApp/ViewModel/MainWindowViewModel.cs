@@ -14,7 +14,7 @@ namespace QuotesApp.ViewModel
     /// Основная модель-представление.
     /// Связывает модель данных и представление
     /// </summary>
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : PropertyChangedClass
     {
         ObservableCollection<Valuta> valutes;
         Valuta selectedValuta;
@@ -92,12 +92,12 @@ namespace QuotesApp.ViewModel
         /// <summary>
         /// Метод определяющий возможность обновления(если список пуст, то невозможно обновить)
         /// </summary>
-        /// <param name="arg"></param>
+        /// <param name="obj"></param>
         /// <returns></returns>
-        private bool CanUpdate(object arg)
+        private bool CanUpdate(object obj)
         {
-            if ((arg as ObservableCollection<Valuta>) != null)
-                return (arg as ObservableCollection<Valuta>).Any();
+            if (Valutes != null)
+                return Valutes.Any();
             return false;
         }
         /// <summary>
@@ -120,7 +120,7 @@ namespace QuotesApp.ViewModel
             List<Valuta> SearchedValutes = Valutes.Where(valuta => valuta.Name.Contains(SearchText) || valuta.NumCode.Contains(SearchText) || valuta.CharCode.Contains(SearchText)).ToList();
             foreach (Valuta valuta in SearchedValutes)
             {
-                string valutaText = valuta.CourseString + " = " + ((valuta.Worth/ valuta.Nominal) / (Usd.Worth / Usd.Nominal) * valuta.Nominal).ToString("F3") + " USD";
+                string valutaText = valuta.CourseString + " = " + (valuta.Worth/ valuta.Nominal / (Usd.Worth / Usd.Nominal) * valuta.Nominal).ToString("F3") + " USD";
                 searchedValutaText.Add(valutaText);
             }
             SearchedValutaText = searchedValutaText;
@@ -134,10 +134,10 @@ namespace QuotesApp.ViewModel
         /// </summary>
         /// <param name="arg"></param>
         /// <returns></returns>
-        private bool CanSearch(object arg)
+        private bool CanSearch(object obj)
         {
-            if ((arg as string) != null)
-                return (arg as string).Length != 0;
+            if (SearchText != null)
+                return SearchText.Length != 0;
             return false;
         }
         /// <summary>
@@ -151,18 +151,10 @@ namespace QuotesApp.ViewModel
                 if (ConvertSelectedFirst != null && ConvertSelectedSecond != null)
                 {
 
-                    ConvertSecondValue = (ConvertSelectedFirst.Worth / ConvertSelectedFirst.Nominal) / (ConvertSelectedSecond.Worth / ConvertSelectedSecond.Nominal) * value;
+                    ConvertSecondValue = ConvertSelectedFirst.Worth / ConvertSelectedFirst.Nominal / (ConvertSelectedSecond.Worth / ConvertSelectedSecond.Nominal) * value;
                 }
             }
 
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

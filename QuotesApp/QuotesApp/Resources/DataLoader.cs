@@ -77,6 +77,7 @@ namespace QuotesApp.Resources
         /// <returns></returns>
         public async Task<bool> IsNewLoad()
         {
+            await Task.Delay(5000);//Задержка 5 секунд
             string lastDate = currentDate;
             await LoadJson();
             if (lastDate != currentDate) return true;

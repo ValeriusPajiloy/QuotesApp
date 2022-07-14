@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using QuotesApp.Resources;
 
 namespace QuotesApp.Model
 {
@@ -11,7 +12,7 @@ namespace QuotesApp.Model
     /// Основная модель данных Valuta
     /// Представляет собой объект "Валюта"
     /// </summary>
-    public class Valuta : INotifyPropertyChanged
+    public class Valuta : PropertyChangedClass
     {
         string id;
         string numCode;
@@ -57,16 +58,5 @@ namespace QuotesApp.Model
         /// Текущий курс в по отношению к RUB в виде полной строки
         /// </summary>
         public string CourseString { get { return Nominal.ToString() + " " + CharCode + " = " + Worth.ToString("F3") + " RUB"; } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-
     }
 }

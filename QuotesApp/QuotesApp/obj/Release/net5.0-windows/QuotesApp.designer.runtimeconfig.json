@@ -7,7 +7,8 @@
     },
     "additionalProbingPaths": [
       "C:\\Users\\Valer\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Valer\\.nuget\\packages"
+      "C:\\Users\\Valer\\.nuget\\packages",
+      "D:\\Programs\\DevExpress\\Components\\Offline Packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

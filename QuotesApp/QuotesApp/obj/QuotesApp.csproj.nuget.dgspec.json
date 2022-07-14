@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\QuotesApp.csproj": {}
+    "D:\\GitHub\\QuotesApp\\QuotesApp\\QuotesApp\\QuotesApp.csproj": {}
   },
   "projects": {
-    "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\QuotesApp.csproj": {
+    "D:\\GitHub\\QuotesApp\\QuotesApp\\QuotesApp\\QuotesApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
+        "projectUniqueName": "D:\\GitHub\\QuotesApp\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
         "projectName": "QuotesApp",
-        "projectPath": "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
+        "projectPath": "D:\\GitHub\\QuotesApp\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
         "packagesPath": "C:\\Users\\Valer\\.nuget\\packages\\",
-        "outputPath": "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\obj\\",
+        "outputPath": "D:\\GitHub\\QuotesApp\\QuotesApp\\QuotesApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Programs\\DevExpress\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Valer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Programs\\DevExpress\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
         }
       }
     }

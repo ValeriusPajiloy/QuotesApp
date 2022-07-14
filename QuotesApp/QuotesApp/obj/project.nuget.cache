@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "avh+Ih117SXTfVSBkkthI+4G12ARjQNPjLWY7vNQk48NqOhE6p1R2ziTsE0Gd/Gc61A+p8cBeYWQ/X7djiqlBg==",
+  "dgSpecHash": "2FSdkmUnRli4Y3xDYBaqt/qPoha29Xeb920XYuoYDHw4b43F+N0d7FNd14fnd1bmJwAy3DnWfFJ4WhKCiHn90A==",
   "success": true,
-  "projectFilePath": "D:\\Валера\\Other\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
+  "projectFilePath": "D:\\GitHub\\QuotesApp\\QuotesApp\\QuotesApp\\QuotesApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Valer\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Valer\\.nuget\\packages\\system.windows.interactivity.wpf\\2.0.20525\\system.windows.interactivity.wpf.2.0.20525.nupkg.sha512"
